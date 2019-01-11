@@ -22,3 +22,12 @@ class Post(models.Model):
     def __str__(self):
         return "{} created by {} at {}".format(self.text, self.created_by.username, self.created_at)
 
+class Comment(models.Model):
+    text = models.CharField(max_length=200)
+    post = models.ForeignKey(Post, related_name="comments")
+    created_by = models.ForeignKey(User, related_name="comments")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def _str_(self):
+        return "{} created by {} at {}".format(self.text, self.created_by.username, self.created_at)
