@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-  Create comment
+  Create post
 {% endblock%}
 
 {% block content %}
@@ -8,8 +8,8 @@
     {% csrf_token %}
     <div class="form-group mx-2">
       <textarea rows="4" cols="50" class="form-control" type="text-area" 
-      name="text" required="" id="id_text" maxlength="200">{{ form.text.initial }}</textarea>
+      name="text" required="" id="id_text" maxlength="200"></textarea>
     </div>
-    <input class="btn btn-secondary" type="submit" value="Create comment"/>
+    <input class="btn btn-secondary" type="submit" value="Create post" />
   </form>
 {% endblock %}

@@ -22,12 +22,22 @@ from app.views import (
     CommentCreateView,
     CommentEditView,
     CommentDeleteView,
+    PostCreateView,
+    PostEditView,
+    PostDeleteView,
+    PostListView,
+    PostDetailView,
 )
 urlpatterns = [
     url(r'^$', HomePageView.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^post/(?P<pk>[0-9]+)/comment/create$', CommentCreateView.as_view(), name='comment_create'),
     url(r'^post/(?P<pk>[0-9]+)/comment/(?P<pk_comment>[0-9]+)/edit$', CommentEditView.as_view(), name='comment_edit'),
-    url(r'^post/(?P<pk>[0-9]+)/comment/(?P<pk_comment>[0-9]+)/delete$', CommentDeleteView.as_view(),
-        name='comment_delete')
+    url(r'^post/(?P<pk>[0-9]+)/comment/(?P<pk_comment>[0-9]+)/delete$', CommentDeleteView.as_view(), name='comment_delete'),
+    url(r'^post/$', PostListView.as_view(), name = 'post_list'),
+    url(r'^post/(?P<pk>[0-9]+)/$', PostDetailView.as_view(), name ='post_detail'),
+    url(r'^post/(?P<pk>[0-9]+)$', PostCreateView.as_view(), name ='post_create'),
+    url(r'^post/(?P<pk>[0-9]+)$', PostEditView.as_view(), name='post_update'),
+    url(r'^post/(?P<pk>[0-9]+)$', PostDeleteView.as_view(), name='post_delete'),
+
 ]

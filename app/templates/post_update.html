@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-  Create comment
+  Edit post
 {% endblock%}
 
 {% block content %}
@@ -10,6 +10,6 @@
       <textarea rows="4" cols="50" class="form-control" type="text-area" 
       name="text" required="" id="id_text" maxlength="200">{{ form.text.initial }}</textarea>
     </div>
-    <input class="btn btn-secondary" type="submit" value="Create comment"/>
+    <input class="btn btn-secondary" type="submit" value="Update post" />
   </form>
 {% endblock %}
