@@ -18,9 +18,9 @@ class HomePageView(TemplateView):
 
     template_name = "index.html"
 
-@login_required
 
-def comment_create(request, pk):
+
+"""def comment_create(request, pk):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -31,11 +31,12 @@ def comment_create(request, pk):
                 **form.cleaned_data
             )
             return redirect(reverse_lazy("post_detail", kwargs={"pk": pk}))
+"""
 
-
-class CommentCreateView(LoginRequiredMixin, CreateView):
+class CommentCreateView(CreateView):
     model = Comment
     fields = ['text']
+    template_name = 'comment_create.html'
 
     def form_valid(self, form):
         post = Post.objects.get(id=self.kwargs['pk'])
